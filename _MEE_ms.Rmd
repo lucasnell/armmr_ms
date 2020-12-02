@@ -1,0 +1,156 @@
+---
+title: "`armmr`: An R package for analyzing community time series data"
+bibliography: "references.bib"
+csl: "methods-in-ecology-and-evolution.csl"
+author:
+    - name: Lucas A. Nell
+      nums: "1,§,†"
+    - name: Joseph S. Phillips
+      nums: "2,§"
+affil:
+    - name: Department of Integrative Biology, University of Wisconsin, Madison, WI 53706
+      num: "1"
+    - name: Department of Aquaculture and Fish Biology, Hólar University, Skagafjörður 551 Iceland
+      num: "2"
+    - name: "Email: lucas@lucasnell.com"
+      num: "†"
+    - name: Contributed equally
+      num: "§"
+fontsize: 12pt
+geometry: left=2.5cm,right=2.5cm,top=3cm,bottom=3cm
+documentclass: article
+tables: true
+graphics: true
+colorlinks: true
+mathspec: true
+linestretch: 2
+sectionbreaks: true
+numbersections: true
+raggedtoc: true
+output: 
+    bookdown::pdf_document2:
+        fig_caption: yes
+        template: template.tex
+        keep_tex: yes
+        number_sections: no
+        toc: no
+        highlight: haddock
+        latex_engine: "xelatex"
+editor_options:
+    chunk_output_type: console
+---
+
+
+```{r setup, include=FALSE, cache = FALSE}
+suppressPackageStartupMessages({
+    library(knitr)
+    library(tidyverse)
+    library(armmr)
+    library(viridisLite)
+})
+knitr::opts_chunk$set(echo = TRUE, cache = FALSE, eval = FALSE, dev = "cairo_pdf")
+
+theme_set(theme_classic() + 
+              theme(legend.background = element_blank(),
+                    strip.background = element_blank(),
+                    plot.margin = margin(0.5, 0.5, 0.5, 2)))
+if (!isTRUE(getOption('knitr.in.progress'))) {
+    options("device" = "quartz")
+    grDevices::graphics.off()
+}
+# height and width should be in mm (80 mm is half width, 180 mm is full)
+save_fig <- function(filename, p, width, height) {
+    cairo_pdf(filename, width = width / 25.4, height = height / 25.4)
+    print(p)
+    dev.off()
+    invisible(NULL)
+}
+
+```
+
+
+
+
+<!-- ≤ 45 characters -->
+__Running title\:__ Community time series analyses
+
+
+<!-- A list in alphabetical order not exceeding eight words or short phrases -->
+__Keywords\:__ 
+
+
+
+
+\clearpage
+
+
+<!--- 
+The Abstract must not exceed 350 words and should list the main results and conclusions, using simple, factual, numbered statements:
+    Point 1: set the context for and purpose of the work;
+    Point 2: indicate the approach and methods;
+    Point 3: outline the main results;
+    Point 4: identify the conclusions and the wider implications.
+-->
+
+
+\section*{Abstract}
+
+
+
+
+
+
+
+# Introduction
+
+
+
+
+
+
+# Methods
+
+
+
+
+# Example usage
+
+
+
+
+# Discussion
+
+
+
+
+
+
+\section*{References}
+
+\setstretch{1}
+
+<div id="refs"></div>
+
+\setstretch{2}
+
+
+\section*{Data Availability}
+
+
+`armmr` is open source, under the GPL-3 license.
+The stable version of `armmr` is available on CRAN
+(https://CRAN.R-project.org/package=armmr),
+and the development version is on GitHub
+(https://github.com/lucasnell/armmr).
+The documentation can be found at https://armmr.lucasnell.com.
+The version used in this manuscript was 0.1.0.
+Code for the example usage, validation, and performance is available on 
+GitHub at https://github.com/lucasnell/armmr_ms.
+
+
+
+
+\section*{Author Contributions}
+
+
+

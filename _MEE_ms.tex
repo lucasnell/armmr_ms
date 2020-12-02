@@ -1,0 +1,195 @@
+\PassOptionsToPackage{unicode=true}{hyperref} % options for packages loaded elsewhere
+\PassOptionsToPackage{hyphens}{url}
+\PassOptionsToPackage{dvipsnames,svgnames*,x11names*}{xcolor}
+%
+\documentclass[12pt,]{article}
+\usepackage{lmodern}
+\usepackage{setspace}
+\setstretch{2}
+\usepackage{bbm}
+\usepackage{amssymb,amsmath}
+\usepackage{ifxetex,ifluatex}
+\usepackage{fixltx2e} % provides \textsubscript
+\ifnum 0\ifxetex 1\fi\ifluatex 1\fi=0 % if pdftex
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provides euro and other symbols
+\else % if luatex or xelatex
+  \ifxetex
+    \usepackage{mathspec}
+  \else
+    \usepackage{unicode-math}
+  \fi
+  \defaultfontfeatures{Ligatures=TeX,Scale=MatchLowercase}
+\fi
+% use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+% use microtype if available
+\IfFileExists{microtype.sty}{%
+\usepackage[]{microtype}
+\UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\IfFileExists{parskip.sty}{%
+\usepackage{parskip}
+}{% else
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{6pt plus 2pt minus 1pt}
+}
+\usepackage{xcolor}
+\usepackage{hyperref}
+\hypersetup{
+            pdftitle={armmr: An R package for analyzing community time series data},
+            colorlinks=true,
+            linkcolor=Blue,
+            citecolor=Blue,
+            urlcolor=Blue,
+            breaklinks=true}
+\urlstyle{same}  % don't use monospace font for urls
+\usepackage[left=2.5cm,right=2.5cm,top=3cm,bottom=3cm]{geometry}
+\usepackage[labelfont=bf]{caption}
+    \usepackage{longtable,booktabs}
+            % Fix footnotes in tables (requires footnote package)
+        \IfFileExists{footnote.sty}{\usepackage{footnote}\makesavenoteenv{longtable}}{}
+    \usepackage{graphicx,grffile}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+\setlength{\emergencystretch}{3em}  % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{5}
+% Redefines (sub)paragraphs to behave more like sections
+\ifx\paragraph\undefined\else
+\let\oldparagraph\paragraph
+\renewcommand{\paragraph}[1]{\oldparagraph{#1}\mbox{}}
+\fi
+\ifx\subparagraph\undefined\else
+\let\oldsubparagraph\subparagraph
+\renewcommand{\subparagraph}[1]{\oldsubparagraph{#1}\mbox{}}
+\fi
+
+% set default figure and tabke placement
+\usepackage{float}
+\makeatletter
+\def\fps@figure{H}
+\def\fps@table{H}
+\makeatother
+
+% Add S to the beginning of figure and table labels if it's supplemental section
+
+
+\usepackage{authblk,etoolbox}
+\renewcommand\Affilfont{\small}
+\makeatletter
+% % patch \maketitle so that it doesn't center
+% \patchcmd{\@maketitle}{center}{flushleft}{}{}
+% \patchcmd{\@maketitle}{center}{flushleft}{}{}
+
+% patch the patch by authblk so that the author block is flush left
+\def\maketitle{{%
+  \renewenvironment{tabular}[2][]
+    {\begin{flushleft}}
+    {\end{flushleft}}
+  \AB@maketitle}}
+\makeatother
+
+
+\providecommand{\subtitle}[1]{\Huge{#1}}
+
+\title{
+    \texttt{armmr}: An R package for analyzing community time series data
+            }
+            \author[1,§,†]{Lucas A. Nell}
+            \author[2,§]{Joseph S. Phillips}
+                \affil[1]{Department of Integrative Biology, University of Wisconsin, Madison, WI 53706}
+            \affil[2]{Department of Aquaculture and Fish Biology, Hólar University, Skagafjörður 551 Iceland}
+            \affil[†]{Email: \href{mailto:lucas@lucasnell.com}{\nolinkurl{lucas@lucasnell.com}}}
+            \affil[§]{Contributed equally}
+    % % \author{true \and true}
+% % \date{}
+\date{}
+
+\newcommand{\mean}[1]{\text{mean}\left( #1 \right)}
+\newcommand{\var}[1]{\text{var}\left( #1 \right)}
+
+% Removing extra space around \left( and \right)
+\let\originalleft\left
+\let\originalright\right
+\renewcommand{\left}{\mathopen{}\mathclose\bgroup\originalleft}
+\renewcommand{\right}{\aftergroup\egroup\originalright}
+
+
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{makecell}
+\usepackage{rotating} % To display tables in landscape
+\usepackage{siunitx} % Required for alignment
+
+
+\usepackage{lineno}
+\linenumbers
+
+
+\begin{document}
+
+            \maketitle
+        
+
+
+
+\raggedright
+
+\textbf{Running title:}
+
+\textbf{Keywords:}
+
+\clearpage
+
+\section*{Abstract}
+
+\hypertarget{introduction}{%
+\section{Introduction}\label{introduction}}
+
+\hypertarget{features-and-methods}{%
+\section{Features and methods}\label{features-and-methods}}
+
+\hypertarget{validation-and-performance}{%
+\section{Validation and performance}\label{validation-and-performance}}
+
+\hypertarget{example-usage}{%
+\section{Example usage}\label{example-usage}}
+
+\hypertarget{conclusion}{%
+\section{Conclusion}\label{conclusion}}
+
+\section*{References}
+
+\setstretch{1}
+
+\hypertarget{refs}{}
+
+\setstretch{2}
+
+\section*{Data Availability}
+
+\texttt{armmr} is open source, under the GPL-3 license.
+The stable version of \texttt{armmr} is available on CRAN
+(\url{https://CRAN.R-project.org/package=armmr}),
+and the development version is on GitHub
+(\url{https://github.com/lucasnell/armmr}).
+The documentation can be found at \url{https://armmr.lucasnell.com}.
+The version used in this manuscript was 0.1.0.
+Code for the example usage, validation, and performance is available on
+GitHub at \url{https://github.com/lucasnell/armmr_ms}.
+
+\section*{Author Contributions}
+
+
+
+
+\end{document}
